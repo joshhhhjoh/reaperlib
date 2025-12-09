@@ -359,3 +359,4 @@ function UiLib:CreateToggle(callback)
 		end		
 	end)
 end
+return UiLib
