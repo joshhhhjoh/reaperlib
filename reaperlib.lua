@@ -1,4 +1,4 @@
-local UiLib = {}
+UiLib = {}
 local themes = {}
 
 themes["Default"] = {}
@@ -359,4 +359,3 @@ function UiLib:CreateToggle(callback)
 		end		
 	end)
 end
-
