@@ -170,7 +170,7 @@ function UiLib:CreateUi(UiName)
 	return self
 end 
 
-function UiLib:CreateButton(txt)
+function UiLib:CreateButton(txt, callback)
 	local ButtonTemplate = self.ButtonTemplate
 	local Tab1 = self.Tab1
 	
@@ -184,6 +184,10 @@ function UiLib:CreateButton(txt)
 	_ButtonTemplate.Position = UDim2.new(0.5, 0, 0.0432016701, 31)
 	_ButtonTemplate.AnchorPoint = Vector2.new(0.5, 0.5)
 	_ButtonTemplate.Font = Enum.Font.Ubuntu
+	
+	if typeof(callback) == "function" then 
+		_ButtonTemplate.MouseButton1Click:Connect(callback)
+	end
 end
 
 function UiLib:CreateLabel(txt)
