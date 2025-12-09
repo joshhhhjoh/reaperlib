@@ -1,4 +1,4 @@
-UiLib = {}
+local UiLib = {}
 local themes = {}
 
 themes["Default"] = {}
@@ -29,7 +29,7 @@ function UiLib:CreateUi(UiName)
 	--Properties:
 
 	GUI.Name = "GUI"
-	GUI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+	GUI.Parent = game.CoreGui
 	GUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 	Main.Name = "Main"
@@ -120,7 +120,7 @@ local UICorner = Instance.new("UICorner")
 --Properties:
 
 ToggleTemplate.Name = "ToggleTemplate"
-ToggleTemplate.Parent = game.StarterGui.GUI.Main["Tab1"]
+ToggleTemplate.Parent = Tab1
 ToggleTemplate.BackgroundColor3 = Color3.fromRGB(54, 54, 54)
 ToggleTemplate.BorderColor3 = Color3.fromRGB(0, 0, 0)
 ToggleTemplate.BorderSizePixel = 0
@@ -229,7 +229,7 @@ UICorner.Parent = TextButton
 	--Properties:
 
 	ToggleTemplate.Name = "ToggleTemplate"
-	ToggleTemplate.Parent = game.StarterGui.GUI.Main["Tab1"]
+	ToggleTemplate.Parent = Tab1
 	ToggleTemplate.BackgroundColor3 = Color3.fromRGB(54, 54, 54)
 	ToggleTemplate.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	ToggleTemplate.BorderSizePixel = 0
@@ -359,4 +359,17 @@ function UiLib:CreateToggle(callback)
 		end		
 	end)
 end
+
+UiLib:CreateUi("gay hub")
+UiLib:CreateLabel("features")
+UiLib:CreateButton("alert", function()
+	print("penis penis")
+end)
+UiLib:CreateLabel("features #2")
+UiLib:CreateButton("alert", function()
+	print("penis penis")
+end)
+UiLib:CreateToggle(function()
+	print("penis penis")
+end)
 return UiLib
