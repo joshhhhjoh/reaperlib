@@ -1,4 +1,11 @@
 local UiLib = {}
+local themes = {}
+
+themes["Default"] = {}
+themes["Default"][0] = Color3.fromRGB(54,54,54)
+themes["Default"][1] = Color3.fromRGB(94,94,94)
+themes["Default"][2] = Color3.fromRGB(116,116,116)
+
 function UiLib:CreateUi(UiName)
 	local GUI = Instance.new("ScreenGui")
 	local Main = Instance.new("Frame")
@@ -105,6 +112,46 @@ function UiLib:CreateUi(UiName)
 	TabFrame.BorderColor3 = Color3.fromRGB(255, 255, 255)
 	TabFrame.BorderSizePixel = 0
 	TabFrame.Position = UDim2.new(0, 0, 0, 31)
+local ToggleTemplate = Instance.new("Frame")
+local ToggleText = Instance.new("TextLabel")
+local TextButton = Instance.new("TextButton")
+local UICorner = Instance.new("UICorner")
+
+--Properties:
+
+ToggleTemplate.Name = "ToggleTemplate"
+ToggleTemplate.Parent = game.StarterGui.GUI.Main["Tab1"]
+ToggleTemplate.BackgroundColor3 = Color3.fromRGB(54, 54, 54)
+ToggleTemplate.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ToggleTemplate.BorderSizePixel = 0
+ToggleTemplate.Size = UDim2.new(1, 0, 0.0799999982, 0)
+
+ToggleText.Name = "ToggleText"
+ToggleText.Parent = ToggleTemplate
+ToggleText.BackgroundColor3 = Color3.fromRGB(54, 54, 54)
+ToggleText.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ToggleText.BorderSizePixel = 0
+ToggleText.Position = UDim2.new(0.0799999982, 0, 0, 0)
+ToggleText.Size = UDim2.new(0.5, 0, 1, 0)
+ToggleText.Font = Enum.Font.Ubuntu
+ToggleText.TextColor3 = Color3.fromRGB(255, 255, 255)
+ToggleText.TextSize = 14.000
+ToggleText.TextXAlignment = Enum.TextXAlignment.Left
+
+TextButton.Parent = ToggleTemplate
+TextButton.AnchorPoint = Vector2.new(0.5, 0.5)
+TextButton.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+TextButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.BorderSizePixel = 0
+TextButton.Position = UDim2.new(0.0350000001, 0, 0.5, 0)
+TextButton.Size = UDim2.new(0.0500000007, 0, 0.800000012, 0)
+TextButton.Font = Enum.Font.Ubuntu
+TextButton.Text = ""
+TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.TextSize = 14.000
+
+UICorner.CornerRadius = UDim.new(0, 30)
+UICorner.Parent = TextButton
 	TabFrame.Size = UDim2.new(0, 60, 1, -31)
 	TabFrame.ZIndex = 3
 	TabFrame.ScrollBarThickness = 0
@@ -156,14 +203,75 @@ function UiLib:CreateUi(UiName)
 	ButtonTemplate.TextSize = 18.000
 	ButtonTemplate.TextWrapped = true
 	ButtonTemplate.Visible = false
+	
+	local ImageLabel = Instance.new("ImageLabel")
+	local UICorner = Instance.new("UICorner")
 
+	--Properties:
+
+	ImageLabel.Parent = Main
+	ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	ImageLabel.BorderSizePixel = 0
+	ImageLabel.Size = UDim2.new(0.0799999982, 0, 0.100000001, 0)
+	ImageLabel.ZIndex = 4
+	ImageLabel.Image = "https://www.roblox.com/headshot-thumbnail/image?userId="..  (game.Players.LocalPlayer.UserId) .. " &width=420&height=420&format=png"
+
+	UICorner.CornerRadius = UDim.new(0, 30)
+	UICorner.Parent = ImageLabel
+	
+
+	local ToggleTemplate = Instance.new("Frame")
+	local ToggleText = Instance.new("TextLabel")
+	local ToggleButton = Instance.new("TextButton")
+	local UICorner = Instance.new("UICorner")
+
+	--Properties:
+
+	ToggleTemplate.Name = "ToggleTemplate"
+	ToggleTemplate.Parent = game.StarterGui.GUI.Main["Tab1"]
+	ToggleTemplate.BackgroundColor3 = Color3.fromRGB(54, 54, 54)
+	ToggleTemplate.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	ToggleTemplate.BorderSizePixel = 0
+	ToggleTemplate.Size = UDim2.new(1, 0, 0.0799999982, 0)
+
+	ToggleText.Name = "ToggleText"
+	ToggleText.Parent = ToggleTemplate
+	ToggleText.BackgroundColor3 = Color3.fromRGB(54, 54, 54)
+	ToggleText.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	ToggleText.BorderSizePixel = 0
+	ToggleText.Position = UDim2.new(0.0799999982, 0, 0, 0)
+	ToggleText.Size = UDim2.new(0.5, 0, 1, 0)
+	ToggleText.Font = Enum.Font.Ubuntu
+	ToggleText.TextColor3 = Color3.fromRGB(255, 255, 255)
+	ToggleText.TextSize = 14.000
+	ToggleText.TextXAlignment = Enum.TextXAlignment.Left
+
+	ToggleButton.Name = "ToggleButton"
+	ToggleButton.Parent = ToggleTemplate
+	ToggleButton.AnchorPoint = Vector2.new(0.5, 0.5)
+	ToggleButton.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+	ToggleButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	ToggleButton.BorderSizePixel = 0
+	ToggleButton.Position = UDim2.new(0.0350000001, 0, 0.5, 0)
+	ToggleButton.Size = UDim2.new(0.0500000007, 0, 0.800000012, 0)
+	ToggleButton.Font = Enum.Font.SourceSans
+	ToggleButton.Text = ""
+	ToggleButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+	ToggleButton.TextSize = 14.000
+
+	UICorner.CornerRadius = UDim.new(0, 30)
+	UICorner.Parent = ToggleButton
+	
 	UIPadding_3.Parent = ButtonTemplate
 	UIPadding_3.PaddingLeft = UDim.new(0.00700000022, 0)
 	UIPadding_3.PaddingTop = UDim.new(0.0700000003, 0)
 	
 	self.ButtonTemplate = ButtonTemplate
 	self.Tab1 = Tab1
-	
+	self.ToggleButton = ToggleButton
+	self.ToggleTemplate = ToggleTemplate
+	self.ToggleText = ToggleText
 	self.LabelText = LabelText
 	
 	UICorner_3.Parent = ButtonTemplate
@@ -210,3 +318,45 @@ function UiLib:CreateLabel(txt)
 	_LabelText.Visible = true
 	_LabelText.TextXAlignment = Enum.TextXAlignment.Left
 end
+function UiLib:CreateToggle(callback)
+	local ToggleButton = self.ToggleButton
+	local Tab1 = self.Tab1
+	local ToggleTemplate = self.ToggleTemplate
+	local ToggleText = self.ToggleText
+	
+	local _ToggleButton = ToggleButton:Clone()
+	local _ToggleTemplate = ToggleTemplate:Clone()
+	local _ToggleText = ToggleText:Clone()
+	
+	_ToggleButton.Parent = _ToggleTemplate
+	_ToggleButton.Size = UDim2.new(0.05, 0,0.8, 0)
+	_ToggleButton.AnchorPoint = Vector2.new(0.5, 0.5)
+	_ToggleText.Parent = _ToggleTemplate
+	
+	_ToggleTemplate.Name = "ToggleTemplate"
+	_ToggleTemplate.Parent = Tab1
+	_ToggleTemplate.BackgroundColor3 = Color3.fromRGB(54, 54, 54)
+	_ToggleTemplate.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	_ToggleTemplate.BorderSizePixel = 0
+	_ToggleTemplate.Size = UDim2.new(1, 0, 0.0799999982, 0)
+	
+	local _tog = false
+	_ToggleButton.MouseButton1Click:Connect(function()
+		_tog = not _tog
+		if typeof(callback) == "function" then
+			spawn(function()
+				if _tog == true then
+					_ToggleButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+				else
+					_ToggleButton.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+
+				end
+				while _tog == true do
+					callback()
+					task.wait(1)
+				end
+			end)
+		end		
+	end)
+end
+
