@@ -360,17 +360,4 @@ function UiLib:CreateToggle(callback)
 		end		
 	end)
 end
-
-UiLib:CreateUi("gay hub")
-UiLib:CreateLabel("features")
-UiLib:CreateButton("alert", function()
-	print("penis penis")
-end)
-UiLib:CreateLabel("features #2")
-UiLib:CreateButton("alert", function()
-	print("penis penis")
-end)
-UiLib:CreateToggle(function()
-	print("penis penis")
-end)
 return UiLib
