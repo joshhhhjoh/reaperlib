@@ -11,7 +11,6 @@ function UiLib:CreateUi(UiName)
 	local Main = Instance.new("Frame")
 	local UICorner = Instance.new("UICorner")
 	local TopBar = Instance.new("TextLabel")
-	local ExitBtn = Instance.new("ImageLabel")
 	local ScriptTitle = Instance.new("TextLabel")
 	local UIPadding = Instance.new("UIPadding")
 	local BottomBar = Instance.new("TextLabel")
@@ -25,11 +24,12 @@ function UiLib:CreateUi(UiName)
 	local ButtonTemplate = Instance.new("TextButton")
 	local UIPadding_3 = Instance.new("UIPadding")
 	local UICorner_3 = Instance.new("UICorner")
+	local MinimizeBtn = Instance.new("TextButton")
 
 	--Properties:
 
 	GUI.Name = "GUI"
-	GUI.Parent = game.CoreGui
+	GUI.Parent = game.Players.LocalPlayer.PlayerGui
 	GUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 	Main.Name = "Main"
@@ -57,15 +57,24 @@ function UiLib:CreateUi(UiName)
 	TopBar.TextColor3 = Color3.fromRGB(0, 0, 0)
 	TopBar.TextSize = 14.000
 
-	ExitBtn.Name = "ExitBtn"
-	ExitBtn.Parent = TopBar
-	ExitBtn.AnchorPoint = Vector2.new(1, 0.5)
-	ExitBtn.BackgroundTransparency = 1.000
-	ExitBtn.BorderSizePixel = 0
-	ExitBtn.Position = UDim2.new(1, 0, 0, 0)
-	ExitBtn.Size = UDim2.new(0, 30, 0, 30)
-	ExitBtn.Image = "http://www.roblox.com/asset/?id=6026568240"
-
+	MinimizeBtn.Name = "MinimizeBtn"
+	MinimizeBtn.Parent = TopBar
+	MinimizeBtn.AnchorPoint = Vector2.new(1, 0.5)
+	MinimizeBtn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	MinimizeBtn.BackgroundTransparency = 1.000
+	MinimizeBtn.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	MinimizeBtn.BorderSizePixel = 0
+	MinimizeBtn.Position = UDim2.new(1, 0, 0.5, 0)
+	MinimizeBtn.Size = UDim2.new(0, 30, 0, 30)
+	MinimizeBtn.Font = Enum.Font.SourceSans
+	MinimizeBtn.Text = "-"
+	MinimizeBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+	MinimizeBtn.TextSize = 31.000
+	
+	MinimizeBtn.MouseButton1Click:Connect(function()
+		Main.Visible = false
+	end)
+	
 	ScriptTitle.Name = "ScriptTitle"
 	ScriptTitle.Parent = TopBar
 	ScriptTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -112,8 +121,7 @@ function UiLib:CreateUi(UiName)
 	TabFrame.BorderColor3 = Color3.fromRGB(255, 255, 255)
 	TabFrame.BorderSizePixel = 0
 	TabFrame.Position = UDim2.new(0, 0, 0, 31)
---Properties:
-	
+
 	TabFrame.Size = UDim2.new(0, 60, 1, -31)
 	TabFrame.ZIndex = 3
 	TabFrame.ScrollBarThickness = 0
@@ -229,6 +237,56 @@ function UiLib:CreateUi(UiName)
 	UIPadding_3.Parent = ButtonTemplate
 	UIPadding_3.PaddingLeft = UDim.new(0.00700000022, 0)
 	UIPadding_3.PaddingTop = UDim.new(0.0700000003, 0)
+	UICorner_3.Parent = ButtonTemplate
+	
+
+	local TextboxTemplate = Instance.new("Frame")
+	local TextBox = Instance.new("TextBox")
+	local UICorner = Instance.new("UICorner")
+	local UICorner_2 = Instance.new("UICorner")
+	local TextboxLabel = Instance.new("TextLabel")
+
+	--Properties:
+
+	TextboxTemplate.Name = "TextboxTemplate"
+	TextboxTemplate.Parent = Tab1
+	TextboxTemplate.BackgroundColor3 = Color3.fromRGB(54, 54, 54)
+	TextboxTemplate.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	TextboxTemplate.BorderSizePixel = 0
+	TextboxTemplate.Size = UDim2.new(0.800000012, 0, 0.100000001, 0)
+	TextboxTemplate.Visible = false
+
+	TextBox.Parent = TextboxTemplate
+	TextBox.AnchorPoint = Vector2.new(1, 0.5)
+	TextBox.BackgroundColor3 = Color3.fromRGB(54, 54, 54)
+	TextBox.BorderColor3 = Color3.fromRGB(255, 255, 255)
+	TextBox.Position = UDim2.new(1, 0, 0.5, 0)
+	TextBox.Size = UDim2.new(0.800000012, 0, 1, 0)
+	TextBox.ClearTextOnFocus = false
+	TextBox.Font = Enum.Font.Ubuntu
+	TextBox.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
+	TextBox.Text = ""
+	TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+	TextBox.TextSize = 14.000
+	TextBox.Visible = false
+
+	UICorner.Parent = TextBox
+
+	UICorner_2.Parent = TextboxTemplate
+
+	TextboxLabel.Name = "TextboxLabel"
+	TextboxLabel.Parent = TextboxTemplate
+	TextboxLabel.AnchorPoint = Vector2.new(1, 0.5)
+	TextboxLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TextboxLabel.BackgroundTransparency = 1.000
+	TextboxLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	TextboxLabel.BorderSizePixel = 0
+	TextboxLabel.Position = UDim2.new(0.200000003, 0, 0.5, 0)
+	TextboxLabel.Size = UDim2.new(0.200000003, 0, 0.5, 0)
+	TextboxLabel.Font = Enum.Font.Ubuntu
+	TextboxLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+	TextboxLabel.TextSize = 14.000
+	TextboxLabel.Visible = false
 	
 	self.ButtonTemplate = ButtonTemplate
 	self.Tab1 = Tab1
@@ -236,8 +294,9 @@ function UiLib:CreateUi(UiName)
 	self.ToggleTemplate = ToggleTemplate
 	self.ToggleText = ToggleText
 	self.LabelText = LabelText
-	
-	UICorner_3.Parent = ButtonTemplate
+	self.TextboxTemplate = TextboxTemplate
+	self.TextboxLabel = TextboxLabel
+	self.TextBox = TextBox
 	return self
 end 
 
@@ -320,5 +379,68 @@ function UiLib:CreateToggle(callback)
 				end
 			end)
 		end		
-	end)
+		end)
+end
+function UiLib:CreateTextbox(txt, callback)
+	local TextBoxTemplate = self.TextboxTemplate
+	local Tab1 = self.Tab1
+	local TextboxText = self.TextboxLabel
+	local TextBox = self.TextBox
+
+	local _TextBoxTemplate = TextBoxTemplate:Clone()
+	local _TextBox = TextBox:Clone()
+	local _TextboxLabel = TextboxText:Clone()
+	local UIStroke = Instance.new("UIStroke")
+
+	
+	_TextBoxTemplate.Visible = true
+	_TextBoxTemplate.Name = "TextboxTemplate"
+	_TextBoxTemplate.Parent = Tab1
+	_TextBoxTemplate.BackgroundColor3 = Color3.fromRGB(54, 54, 54)
+	_TextBoxTemplate.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	_TextBoxTemplate.BorderSizePixel = 0
+	_TextBoxTemplate.Size = UDim2.new(0.800000012, 0, 0.04, 0)
+
+	_TextBox.Parent = _TextBoxTemplate
+	_TextBox.AnchorPoint = Vector2.new(1, 0.5)
+	_TextBox.BackgroundColor3 = Color3.fromRGB(54, 54, 54)
+	_TextBox.BorderColor3 = Color3.fromRGB(255, 255, 255)
+	_TextBox.Position = UDim2.new(1, 0, 0.5, 0)
+	_TextBox.Size = UDim2.new(0.800000012, 0, .7, 0)
+	_TextBox.ClearTextOnFocus = false
+	_TextBox.Font = Enum.Font.Ubuntu
+	_TextBox.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
+	_TextBox.Text = ""
+	_TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+	_TextBox.TextSize = 14.000
+	_TextBox.Visible = true
+
+	
+	_TextboxLabel.Name = "TextboxLabel"
+	_TextboxLabel.Parent = _TextBoxTemplate
+	_TextboxLabel.AnchorPoint = Vector2.new(1, 0.5)
+	_TextboxLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	_TextboxLabel.BackgroundTransparency = 1.000
+	_TextboxLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	_TextboxLabel.BorderSizePixel = 0
+	_TextboxLabel.Position = UDim2.new(0.200000003, 0, 0.5, 0)
+	_TextboxLabel.Size = UDim2.new(0.200000003, 0, 0.5, 0)
+	_TextboxLabel.Font = Enum.Font.Ubuntu
+	_TextboxLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+	_TextboxLabel.TextSize = 14.000
+	_TextboxLabel.Text = txt
+	_TextboxLabel.Visible = true
+	
+	UIStroke.Parent = _TextBox
+	UIStroke.Color = Color3.fromRGB(255, 255, 255)
+	UIStroke.Thickness = 2.4
+	UIStroke.Transparency = 0.83
+	UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	
+	
+	if type(callback) == "function" then	
+		_TextBox.FocusLost:Connect(function()
+			callback(_TextBox.Text)
+		end)
+	end
 end
