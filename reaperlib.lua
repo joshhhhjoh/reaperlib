@@ -75,7 +75,7 @@ function UiLib:CreateUi(UiName)
 	ScriptTitle.Position = UDim2.new(0, 50, 0, 0)
 	ScriptTitle.Size = UDim2.new(0, 100, 0, 25)
 	ScriptTitle.Font = Enum.Font.Ubuntu
-	ScriptTitle.Text = "UI Library"
+	ScriptTitle.Text = UiName
 	ScriptTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
 	ScriptTitle.TextSize = 18.000
 	ScriptTitle.TextXAlignment = Enum.TextXAlignment.Left
@@ -112,15 +112,8 @@ function UiLib:CreateUi(UiName)
 	TabFrame.BorderColor3 = Color3.fromRGB(255, 255, 255)
 	TabFrame.BorderSizePixel = 0
 	TabFrame.Position = UDim2.new(0, 0, 0, 31)
-local ToggleTemplate = Instance.new("Frame")
-local ToggleText = Instance.new("TextLabel")
-local TextButton = Instance.new("TextButton")
-local UICorner = Instance.new("UICorner")
-
 --Properties:
-
-UICorner.CornerRadius = UDim.new(0, 30)
-UICorner.Parent = TextButton
+	
 	TabFrame.Size = UDim2.new(0, 60, 1, -31)
 	TabFrame.ZIndex = 3
 	TabFrame.ScrollBarThickness = 0
@@ -198,7 +191,7 @@ UICorner.Parent = TextButton
 	--Properties:
 
 	ToggleTemplate.Name = "ToggleTemplate"
-	ToggleTemplate.Parent = Main1
+	ToggleTemplate.Parent = Main
 	ToggleTemplate.BackgroundColor3 = Color3.fromRGB(54, 54, 54)
 	ToggleTemplate.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	ToggleTemplate.BorderSizePixel = 0
@@ -329,4 +322,4 @@ function UiLib:CreateToggle(callback)
 		end		
 	end)
 end
-return UiLib
+UiLib:CreateUi("ok")
