@@ -119,37 +119,6 @@ local UICorner = Instance.new("UICorner")
 
 --Properties:
 
-ToggleTemplate.Name = "ToggleTemplate"
-ToggleTemplate.Parent = Tab1
-ToggleTemplate.BackgroundColor3 = Color3.fromRGB(54, 54, 54)
-ToggleTemplate.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ToggleTemplate.BorderSizePixel = 0
-ToggleTemplate.Size = UDim2.new(1, 0, 0.0799999982, 0)
-
-ToggleText.Name = "ToggleText"
-ToggleText.Parent = ToggleTemplate
-ToggleText.BackgroundColor3 = Color3.fromRGB(54, 54, 54)
-ToggleText.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ToggleText.BorderSizePixel = 0
-ToggleText.Position = UDim2.new(0.0799999982, 0, 0, 0)
-ToggleText.Size = UDim2.new(0.5, 0, 1, 0)
-ToggleText.Font = Enum.Font.Ubuntu
-ToggleText.TextColor3 = Color3.fromRGB(255, 255, 255)
-ToggleText.TextSize = 14.000
-ToggleText.TextXAlignment = Enum.TextXAlignment.Left
-
-TextButton.Parent = ToggleTemplate
-TextButton.AnchorPoint = Vector2.new(0.5, 0.5)
-TextButton.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
-TextButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-TextButton.BorderSizePixel = 0
-TextButton.Position = UDim2.new(0.0350000001, 0, 0.5, 0)
-TextButton.Size = UDim2.new(0.0500000007, 0, 0.800000012, 0)
-TextButton.Font = Enum.Font.Ubuntu
-TextButton.Text = ""
-TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextButton.TextSize = 14.000
-
 UICorner.CornerRadius = UDim.new(0, 30)
 UICorner.Parent = TextButton
 	TabFrame.Size = UDim2.new(0, 60, 1, -31)
