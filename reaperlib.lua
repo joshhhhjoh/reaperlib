@@ -229,11 +229,12 @@ UICorner.Parent = TextButton
 	--Properties:
 
 	ToggleTemplate.Name = "ToggleTemplate"
-	ToggleTemplate.Parent = Tab1
+	ToggleTemplate.Parent = Main1
 	ToggleTemplate.BackgroundColor3 = Color3.fromRGB(54, 54, 54)
 	ToggleTemplate.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	ToggleTemplate.BorderSizePixel = 0
 	ToggleTemplate.Size = UDim2.new(1, 0, 0.0799999982, 0)
+	ToggleTemplate.Visible = false
 
 	ToggleText.Name = "ToggleText"
 	ToggleText.Parent = ToggleTemplate
