@@ -322,4 +322,4 @@ function UiLib:CreateToggle(callback)
 		end		
 	end)
 end
-UiLib:CreateUi("ok")
+return UiLib
