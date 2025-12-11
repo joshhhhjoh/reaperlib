@@ -340,7 +340,7 @@ function UiLib:CreateLabel(txt)
 	_LabelText.Visible = true
 	_LabelText.TextXAlignment = Enum.TextXAlignment.Left
 end
-function UiLib:CreateToggle(callback)
+function UiLib:CreateToggle(txt,callback, delay)
 	local ToggleButton = self.ToggleButton
 	local Tab1 = self.Tab1
 	local ToggleTemplate = self.ToggleTemplate
@@ -361,6 +361,12 @@ function UiLib:CreateToggle(callback)
 	_ToggleTemplate.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	_ToggleTemplate.BorderSizePixel = 0
 	_ToggleTemplate.Size = UDim2.new(1, 0, 0.0799999982, 0)
+	_ToggleTemplate.Visible = true
+
+	_ToggleText.Parent = _ToggleTemplate
+	_ToggleText.Position = UDim2.new(0.08, 0, 0, 0)
+	_ToggleText.Size = UDim2.new(0.5, 0, 1, 0)
+	_ToggleText.Text = txt
 	
 	local _tog = false
 	_ToggleButton.MouseButton1Click:Connect(function()
@@ -375,7 +381,7 @@ function UiLib:CreateToggle(callback)
 				end
 				while _tog == true do
 					callback()
-					task.wait(1)
+					task.wait(delay)
 				end
 			end)
 		end		
